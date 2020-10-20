@@ -49,3 +49,5 @@ mongoose.connect('mongodb+srv://soon9:<password>@soon9-youtube-clone.ynizg.mongo
     "dev": "nodemon --watch src/ -r esm src/index.js"
   }
 ```
+
+- 입력값 검증 라이브러리 Joi 설치 `$ yarn add @hapi/joi`

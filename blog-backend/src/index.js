@@ -1,20 +1,24 @@
+import Koa from 'koa';
+import Router from 'koa-router';
+import bodyParser from 'koa-bodyparser';
 
-const Koa = require('koa');
-const Router = require('koa-router');
-const bodyParser = require('koa-bodyparser');
-
-const api = require('./api');
+import api from './api';
 
 //몽구스 연결
-const config = require('./config/key');
-const mongoose = require('mongoose')
+import config from './config/key';
+import mongoose from 'mongoose';
+
+// import createFakeData from "./createFakeData";
+
 mongoose.connect(config.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: true
-}).then(() => console.log('Mongo DB connected!'))
-    .catch(err => console.error(err));
+}).then(() => {
+    console.log('Mongo DB connected!');
+    // createFakeData();
+}).catch(err => console.error(err));
 
 const app = new Koa();
 const port = 4000;
